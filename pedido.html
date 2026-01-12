@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Pedido - DocMaster Soluções</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f9ff;
+}
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    margin-top: 40px;
+    border-radius: 10px;
+}
+h1 {
+    text-align: center;
+    color: #0a3d62;
+}
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+}
+button {
+    width: 100%;
+    background: #0a3d62;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+button:hover {
+    background: #062c47;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<h1>Preencha seus dados</h1>
+
+<form action="pagamento.html">
+<input type="text" placeholder="Nome completo" required>
+<input type="text" placeholder="CPF" required>
+<input type="text" placeholder="Cidade e Estado" required>
+<input type="text" placeholder="Nome do Hospital" required>
+<input type="text" placeholder="Endereço do Hospital" required>
+<input type="text" placeholder="Data e Hora" required>
+<input type="text" placeholder="Motivo (CID)" required>
+<input type="number" placeholder="Dias de Atestado" required>
+
+<input type="text" placeholder="WhatsApp para contato" required>
+<input type="email" placeholder="E-mail para entrega" required>
+
+<button type="submit">FINALIZAR PEDIDO</button>
+</form>
+</div>
+
+</body>
+</html>
