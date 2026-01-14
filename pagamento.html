@@ -1,23 +1,142 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
   <title>Pagamento | DocMaster Soluções</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fonte premium -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
   <style>
-    :root{--azul:#0b5ed7;--azul-esc:#0a58ca;--cinza:#f5f7fb;--texto:#1f2937}
-    *{box-sizing:border-box;font-family:Arial, Helvetica, sans-serif}
-    body{margin:0;color:var(--texto);background:var(--cinza)}
-    header{background:#fff;border-bottom:1px solid #e5e7eb}
-    .container{max-width:900px;margin:0 auto;padding:20px}
-    .brand{font-size:22px;font-weight:800;color:var(--azul)}
-    .card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:22px}
-    h1{margin:16px 0 8px}
-    .price{font-size:28px;font-weight:900;color:var(--azul)}
-    .pix-key{background:#f9fafb;border:1px dashed #c7d2fe;border-radius:10px;padding:12px;font-weight:700}
-    .btn{background:var(--azul);color:#fff;border:none;padding:14px;border-radius:10px;font-weight:800;cursor:pointer;text-decoration:none;display:inline-block}
-    .btn:hover{background:var(--azul-esc)}
-    .muted{color:#6b7280;font-size:14px}
+    :root {
+      --primary: #0f172a;
+      --secondary: #1e293b;
+      --accent: #22c55e;
+      --bg: #f8fafc;
+      --text: #334155;
+      --border: #e5e7eb;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    /* FUNDO DESFOCADO */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        linear-gradient(
+          rgba(15, 23, 42, 0.55),
+          rgba(15, 23, 42, 0.55)
+        ),
+        url("img/bg.jpg") center / cover no-repeat;
+      filter: blur(10px);
+      z-index: -1;
+    }
+
+    header {
+      background: white;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .container {
+      max-width: 720px;
+      margin: auto;
+      padding: 24px;
+    }
+
+    .brand {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .card {
+      background: white;
+      margin-top: 40px;
+      padding: 40px;
+      border-radius: 22px;
+      box-shadow: 0 30px 60px rgba(0,0,0,.15);
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      margin-top: 0;
+      font-size: 28px;
+      color: var(--primary);
+    }
+
+    .price {
+      font-size: 36px;
+      font-weight: 900;
+      color: var(--accent);
+      margin: 20px 0;
+    }
+
+    .pix-box {
+      background: #f9fafb;
+      border: 2px dashed #bbf7d0;
+      border-radius: 16px;
+      padding: 18px;
+      text-align: center;
+      font-size: 18px;
+      font-weight: 700;
+      margin: 20px 0;
+    }
+
+    .btn {
+      width: 100%;
+      background: var(--accent);
+      color: white;
+      padding: 18px;
+      border-radius: 14px;
+      border: none;
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform .2s, box-shadow .2s;
+      margin-top: 12px;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 40px rgba(0,0,0,.2);
+    }
+
+    .muted {
+      color: #64748b;
+      font-size: 14px;
+    }
+
+    .confirm-link {
+      display: block;
+      margin-top: 30px;
+      text-align: center;
+      font-weight: 600;
+      color: var(--secondary);
+      text-decoration: none;
+    }
+
+    .confirm-link:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        padding: 28px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -31,25 +150,32 @@
 <main class="container">
   <div class="card">
     <h1>Pagamento via PIX</h1>
-    <p class="muted">Finalize o pagamento para iniciarmos a produção do seu documento.</p>
+    <p class="muted">
+      Finalize o pagamento para iniciarmos a produção do seu documento.
+    </p>
 
-    <p class="price">R$ 57,90</p>
+    <div class="price">R$ 57,90</div>
 
     <p class="muted">Chave PIX (Celular):</p>
-    <div class="pix-key" id="pixKey">11911864889</div>
+    <div class="pix-box" id="pixKey">11911864889</div>
 
-    <br>
-    <button class="btn" onclick="copiarPix()">COPIAR CHAVE PIX</button>
+    <button class="btn" onclick="copiarPix()">
+      COPIAR CHAVE PIX
+    </button>
 
-    <p class="muted"><br>Após a confirmação do pagamento, seu documento será entregue em até <strong>30 minutos</strong>.</p>
+    <p class="muted" style="margin-top:20px;">
+      Após a confirmação do pagamento, seu documento será entregue em até
+      <strong>30 minutos</strong>.
+    </p>
 
-    <br>
-    <a class="btn" href="confirmacao.html">JÁ REALIZEI O PAGAMENTO</a>
+    <a class="confirm-link" href="confirmacao.html">
+      Já realizei o pagamento
+    </a>
   </div>
 </main>
 
 <script>
-  function copiarPix(){
+  function copiarPix() {
     navigator.clipboard.writeText("11911864889");
     alert("Chave PIX copiada com sucesso!");
   }

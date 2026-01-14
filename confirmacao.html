@@ -1,22 +1,107 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
   <title>Confirmação | DocMaster Soluções</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fonte premium -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
   <style>
-    :root{--azul:#0b5ed7;--azul-esc:#0a58ca;--cinza:#f5f7fb;--texto:#1f2937}
-    *{box-sizing:border-box;font-family:Arial, Helvetica, sans-serif}
-    body{margin:0;color:var(--texto);background:var(--cinza)}
-    header{background:#fff;border-bottom:1px solid #e5e7eb}
-    .container{max-width:700px;margin:0 auto;padding:20px}
-    .brand{font-size:22px;font-weight:800;color:var(--azul)}
-    .card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:30px;text-align:center}
-    h1{margin:10px 0}
-    .btn{background:var(--azul);color:#fff;border:none;padding:16px 24px;border-radius:12px;font-weight:900;cursor:pointer}
-    .btn:hover{background:var(--azul-esc)}
-    .ok{font-size:48px;color:var(--azul)}
-    .muted{color:#6b7280}
+    :root {
+      --primary: #0f172a;
+      --secondary: #1e293b;
+      --accent: #22c55e;
+      --bg: #f8fafc;
+      --text: #334155;
+      --border: #e5e7eb;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    header {
+      background: white;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .container {
+      max-width: 720px;
+      margin: auto;
+      padding: 24px;
+    }
+
+    .brand {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .card {
+      background: white;
+      margin-top: 60px;
+      padding: 50px 40px;
+      border-radius: 22px;
+      box-shadow: 0 20px 40px rgba(0,0,0,.08);
+      text-align: center;
+    }
+
+    .icon {
+      font-size: 64px;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: 30px;
+      color: var(--primary);
+    }
+
+    .muted {
+      color: #64748b;
+      font-size: 16px;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      background: var(--accent);
+      color: white;
+      padding: 16px 32px;
+      border-radius: 14px;
+      border: none;
+      font-size: 17px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 40px rgba(0,0,0,.15);
+    }
+
+    .message {
+      margin-top: 24px;
+      font-size: 15px;
+      color: #16a34a;
+      font-weight: 600;
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        padding: 36px 24px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -29,24 +114,27 @@
 
 <main class="container">
   <div class="card">
-    <div class="ok">✔</div>
+    <div class="icon">✔</div>
+
     <h1>Documento entregue</h1>
+
     <p class="muted">
-      Caso você já tenha recebido seu PDF por e-mail ou WhatsApp,
+      Se você já recebeu seu documento em PDF por e-mail ou WhatsApp,
       confirme o recebimento abaixo.
     </p>
 
-    <br>
-    <button class="btn" onclick="confirmar()">CONFIRMAR RECEBIMENTO DO DOCUMENTO</button>
+    <button class="btn" onclick="confirmarRecebimento()">
+      CONFIRMAR RECEBIMENTO
+    </button>
 
-    <p id="mensagem" class="muted"></p>
+    <div id="mensagem" class="message"></div>
   </div>
 </main>
 
 <script>
-  function confirmar(){
+  function confirmarRecebimento() {
     document.getElementById("mensagem").innerText =
-      "Recebimento confirmado com sucesso. Obrigado!";
+      "Recebimento confirmado com sucesso. Obrigado pela confiança!";
   }
 </script>
 
